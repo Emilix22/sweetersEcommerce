@@ -1,0 +1,35 @@
+.bannerMovil {
+    overflow: hidden;
+}
+
+.banner {
+    display: none;
+    margin-top: 10px;
+    max-height: 400px;
+    margin: 20px 30px;
+}
+.card {
+    flex: 1;
+    overflow: hidden;
+    transition: all 0.5s;
+}
+.card img {
+    object-fit: cover;
+    filter: grayscale(80%);
+}
+.card:hover {
+    flex: 1.2;
+}
+.card:hover img {
+    filter: none;
+}
+
+@media (min-width: 769px) {
+    
+    .banner {
+        display: flex;
+    }
+    .bannerMovil {
+        display: none;
+    }
+}    
