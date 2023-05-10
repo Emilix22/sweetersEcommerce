@@ -27,7 +27,7 @@ function Navbar() {
                     <MenuIcon className='hamMenu' />
                     <ul className="register">
                         <li>
-                            <Link to="/register">Registrarme</Link>
+                            <Link to="/users/register">Registrarme</Link>
                         </li>
                         <li>
                             <Link to="/login">Login</Link>
