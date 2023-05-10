@@ -5,6 +5,7 @@ import Home from '../home/Home';
 import Products from '../products/Products';
 import ProductsCreateForm from '../productsCreateForm/ProductsCreateForm';
 import Register from '../register/Register';
+import Login from '../login/Login';
 
 
 function App() {
@@ -25,6 +26,9 @@ function App() {
         </Route>
         <Route exact path="/users/register">
             <Register />
+        </Route>
+        <Route exact path="/users/login">
+            <Login />
         </Route>
         {/* <Route component={NotFound} /> */}
       </Switch>
