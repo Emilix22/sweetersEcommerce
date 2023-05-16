@@ -16,10 +16,10 @@ function Navbar() {
                         <img className="logo" src={logo} alt="logo"/>
                     </a>
                 </picture>
-                <form action="/products/search" method="POST">
+                <form action="http://localhost:3000/api/products/search" method="POST">
                     <div className="search-bar-container">
                         <input type="search-text" name="searchTxt" placeholder="Buscar..."/>
-                        <button className="search"><SearchIcon className='searchIcon' /></button>
+                       <button className="search"><SearchIcon className='searchIcon' /></button>
                     </div>
                 </form>
                 <div className="icons">

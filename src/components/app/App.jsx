@@ -6,6 +6,7 @@ import Products from '../products/Products';
 import ProductsCreateForm from '../productsCreateForm/ProductsCreateForm';
 import Register from '../register/Register';
 import Login from '../login/Login';
+import ProductsDetail from '../productsDetail/ProductsDetail';
 
 
 function App() {
@@ -15,6 +16,9 @@ function App() {
       <Navbar />
       
       <Switch>
+        <Route exact path="/products/detail/:id">
+            <ProductsDetail />
+        </Route>
         <Route exact path="/">
             <Home />
         </Route>
@@ -30,6 +34,7 @@ function App() {
         <Route exact path="/users/login">
             <Login />
         </Route>
+        
         {/* <Route component={NotFound} /> */}
       </Switch>
     </div>
