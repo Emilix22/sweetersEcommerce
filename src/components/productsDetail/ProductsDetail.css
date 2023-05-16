@@ -1,0 +1,27 @@
+.title {
+    width: 80%;
+    color: #3e6b59;
+    text-align: center;
+    margin: 20px auto;
+}
+.product-detail {
+    display: flex;
+    padding: 10px;
+    width: 80%;
+    gap: 5px;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+
+.product-detail img {
+    width: 40%;
+    border-radius: 5px;
+}
+
+.product-detail .text-detail {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    color: #3e6b59;
+}

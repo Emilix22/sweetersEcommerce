@@ -16,10 +16,17 @@ function ProdutDetail() {
     }, [])
 
     return (
-        <article>
-            <h1 className='titulo'>Detalle del producto: {product.name}</h1>
-                       
-        </article>
+        <main className='detail-container'>
+            <h2 className='title'>{product.name}</h2>
+            <article className='product-detail'>
+                <img src={`http://localhost:3000/img/products/${product.image}`} alt="image-product" />
+                <div className='text-detail'>
+                    <p>Descripción: {product.description}</p>
+                    <span>Precio: ${product.price}</span>
+                    <span>Colores disponibles: ver esta parte </span>
+                </div>  
+            </article>
+        </main>
     )
 }
 
