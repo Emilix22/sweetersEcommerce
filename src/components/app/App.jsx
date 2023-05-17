@@ -30,9 +30,6 @@ function App() {
         <Route exact path="/products/detail/:id">
             <ProductsDetail />
         </Route>
-        <Route exact path="/products/create">
-            <ProductsCreateForm />
-        </Route>
         <Route exact path="/users/register">
             <Register />
         </Route>

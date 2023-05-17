@@ -1,14 +1,18 @@
 import React from 'react'
+import ProductCard from '../productCard/ProductCard'
 
 function SearchResult({ results }) {
     return (
-        <div>
+        
+        <div className='products' id='products'>
+               
             {
-                results.map((product, id) => {
-                    return <div key={id}>{product.name}</div>
+                results.map((product, index) => {
+                    return <ProductCard {...product} key= {product + index} />
                 })
-            }
+            } 
         </div>
+        
     )
 }
 

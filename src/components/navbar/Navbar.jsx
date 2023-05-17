@@ -38,6 +38,7 @@ function Navbar({ setResults }) {
                 </picture>
                 <form action="">
                     <div className="search-bar-container">
+                        <SearchIcon />
                         <input onChange={(e) => handleChange(e.target.value)} type="search-text" name="searchTxt" placeholder="Buscar por nombre..." value={input}/>
                     </div>
                 </form>
@@ -63,9 +64,6 @@ function Navbar({ setResults }) {
                 </li>
                 <li>
                     <HashLink to="/#offers">Ofertas</HashLink>
-                </li>
-                <li>
-                    <Link to="/products/create">Crear Productos</Link>
                 </li>
             </ul>  
         </div>
