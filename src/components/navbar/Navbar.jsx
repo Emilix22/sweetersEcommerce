@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import './Navbar.css'
 import logo from '../../assets/logo.jpg'
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
@@ -7,7 +7,27 @@ import MenuIcon from '@mui/icons-material/Menu';
 import {Link} from 'react-router-dom';
 import { HashLink } from 'react-router-hash-link';
 
-function Navbar() {
+function Navbar({ setResults }) {
+
+    const [input, setInput] = useState('')
+
+    const fetchData = (value) => {
+        fetch('http://localhost:3000/api/products')
+        .then(res => res.json())
+        .then(info => {
+            const results = info.data.filter((product) => {
+                return value && product.name.toLowerCase().includes(value)
+            })
+            setResults(results)
+        })
+    }
+
+    const handleChange = (value) => {
+        setInput(value)
+        fetchData(value)
+
+    }
+    
     return (
         <div className='navbar'>
             <div className="top-bar">
@@ -16,10 +36,9 @@ function Navbar() {
                         <img className="logo" src={logo} alt="logo"/>
                     </a>
                 </picture>
-                <form action="http://localhost:3000/api/products/search" method="POST">
+                <form action="">
                     <div className="search-bar-container">
-                        <input type="search-text" name="searchTxt" placeholder="Buscar..."/>
-                       <button className="search"><SearchIcon className='searchIcon' /></button>
+                        <input onChange={(e) => handleChange(e.target.value)} type="search-text" name="searchTxt" placeholder="Buscar por nombre..." value={input}/>
                     </div>
                 </form>
                 <div className="icons">

@@ -1,3 +1,4 @@
+import React, {useState} from 'react'
 import './App.css';
 import Navbar from '../navbar/Navbar';
 import {Route, Switch} from 'react-router-dom';
@@ -7,23 +8,27 @@ import ProductsCreateForm from '../productsCreateForm/ProductsCreateForm';
 import Register from '../register/Register';
 import Login from '../login/Login';
 import ProductsDetail from '../productsDetail/ProductsDetail';
+import SearchResult from '../searchResult/SearchResult';
 
 
 function App() {
   
+  const [results, setResults] = useState([]);
+
   return (
     <div className='home'>
-      <Navbar />
+      <Navbar setResults={setResults} />
+      <SearchResult results={results} />
       
       <Switch>
-        <Route exact path="/products/detail/:id">
-            <ProductsDetail />
-        </Route>
         <Route exact path="/">
             <Home />
         </Route>
         <Route exact path="/products">
             <Products />
+        </Route>
+        <Route exact path="/products/detail/:id">
+            <ProductsDetail />
         </Route>
         <Route exact path="/products/create">
             <ProductsCreateForm />
