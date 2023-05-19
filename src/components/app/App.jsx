@@ -4,7 +4,6 @@ import Navbar from '../navbar/Navbar';
 import {Route, Switch} from 'react-router-dom';
 import Home from '../home/Home';
 import Products from '../products/Products';
-import ProductsCreateForm from '../productsCreateForm/ProductsCreateForm';
 import Register from '../register/Register';
 import Login from '../login/Login';
 import ProductsDetail from '../productsDetail/ProductsDetail';
