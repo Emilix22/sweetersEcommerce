@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import './App.css';
 import Navbar from '../navbar/Navbar';
 import {Route, Switch} from 'react-router-dom';
@@ -8,15 +8,25 @@ import Register from '../register/Register';
 import Login from '../login/Login';
 import ProductsDetail from '../productsDetail/ProductsDetail';
 import SearchResult from '../searchResult/SearchResult';
+import Cookie from 'js-cookie'
 
 
 function App() {
   
   const [results, setResults] = useState([]);
+  const [user, setUser] = useState(null)
+  const userLogin = Cookie.get('userLogin')
+  
+  useEffect(() => {
+    
+    userLogin && setUser(userLogin)
+
+    },[])
+  
 
   return (
     <div className='home'>
-      <Navbar setResults={setResults} />
+      <Navbar setResults={setResults} user={user} setUser={setUser} />
       <SearchResult results={results} />
       
       <Switch>
@@ -33,7 +43,7 @@ function App() {
             <Register />
         </Route>
         <Route exact path="/users/login">
-            <Login />
+           <Login setUser={setUser} />
         </Route>
         
         {/* <Route component={NotFound} /> */}

@@ -6,14 +6,14 @@ import Checkbox from '@mui/material/Checkbox';
 import Cookie from 'js-cookie'
 import {useHistory} from 'react-router-dom'
 
-function Login() {
+function Login({ setUser }) {
 
     const [userEmail, setUserEmail] = useState()
     const [password, setPassword] = useState()
     const [rememberUser, setRememberUser] = useState()
     const history = useHistory()
 
-    const handleSubmit = (event) => {
+    const handleLogin = (event) => {
         event.preventDefault()
         fetch('http://localhost:3000/api/users/login', {
             method: 'POST',
@@ -27,9 +27,13 @@ function Login() {
         })
         .then(res => res.json())
         .then(info => {
-            //console.log(info)
+
+            setUser(info)
+            setUserEmail('')
+            setPassword('')
+
             if(rememberUser) {
-                Cookie.set('userEmail', info.email, {
+                Cookie.set('userLogin', info, {
                 expires: 10,
                 secure: true,
                 sameSite: 'strict',
@@ -67,7 +71,7 @@ function Login() {
                 <div className='form-group'>
                     <FormControlLabel name='rememberUser' control={<Checkbox onChange={(e) => setRememberUser(e.target.value)} color="success" />} label="Recordarme" />
                 </div>
-                <button onClick={handleSubmit}>Login</button>
+                <button onClick={handleLogin}>Login</button>
             </div>
         </form>
 

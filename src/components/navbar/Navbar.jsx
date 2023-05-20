@@ -6,8 +6,9 @@ import SearchIcon from '@mui/icons-material/Search';
 import MenuIcon from '@mui/icons-material/Menu';
 import {Link} from 'react-router-dom';
 import { HashLink } from 'react-router-hash-link';
+import Cookie from 'js-cookie'
 
-function Navbar({ setResults }) {
+function Navbar({ setResults, user, setUser }) {
 
     const [input, setInput] = useState('')
 
@@ -27,6 +28,12 @@ function Navbar({ setResults }) {
         fetchData(value)
 
     }
+
+    const logout = (event) => {
+        event.preventDefault()
+        setUser(null)
+        Cookie.remove('userLogin')
+    }
     
     return (
         <div className='navbar'>
@@ -45,14 +52,22 @@ function Navbar({ setResults }) {
                 <div className="icons">
                     <ShoppingCartIcon className="cartIcon" />
                     <MenuIcon className='hamMenu' />
-                    <ul className="register">
-                        <li>
-                            <Link to="/users/register">Registrarme</Link>
-                        </li>
-                        <li>
-                            <Link to="/users/login">Login</Link>
-                        </li>
-                    </ul>
+                    { user == null
+                                ? <ul className="register">
+                                    <li>
+                                        <Link to="/users/register">Registrarme</Link>
+                                    </li>
+                                    <li>
+                                        <Link to="/users/login">Login</Link>
+                                    </li> 
+                                </ul>
+                                : <ul className="register">
+                                    <li>
+                                        <Link to="#" onClick={logout}>Logout</Link>
+                                    </li>
+                                </ul>
+                    }
+                    
                 </div>
             </div>
             <ul className="menu">
