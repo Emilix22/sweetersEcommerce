@@ -46,7 +46,7 @@ button {
     padding: 5px 15px;
     cursor: pointer;
     margin: auto;
-    font-size: 18px;
+    font-size: 16px;
 }
 
 @media (min-width: 769px) {

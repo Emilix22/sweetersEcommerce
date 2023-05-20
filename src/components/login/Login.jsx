@@ -4,11 +4,14 @@ import Person2Icon from '@mui/icons-material/Person2';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
 import Cookie from 'js-cookie'
+import {useHistory} from 'react-router-dom'
 
 function Login() {
+
     const [userEmail, setUserEmail] = useState()
     const [password, setPassword] = useState()
     const [rememberUser, setRememberUser] = useState()
+    const history = useHistory()
 
     const handleSubmit = (event) => {
         event.preventDefault()
@@ -24,23 +27,22 @@ function Login() {
         })
         .then(res => res.json())
         .then(info => {
-        //console.log(info)
-           if(rememberUser){
-            Cookie.set('userEmail', info.email, {
+            //console.log(info)
+            if(rememberUser) {
+                Cookie.set('userEmail', info.email, {
                 expires: 10,
                 secure: true,
                 sameSite: 'strict',
                 path: '/'
-            })
+                })
             }
-       
+            history.push('/')
         })    
     }
 
-    
     return (
         <form className='login-container' >
-            <h3 className='welcome-login'>BIENVENID@S</h3>
+            <h3 className='welcome-login'>BIENVENID@</h3>
             <div className='login-form'>
                 <Person2Icon fontSize='large' />
                 <div className='form-group'>
