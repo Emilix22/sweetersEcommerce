@@ -3,20 +3,20 @@ import './Register.css';
 import Person2Icon from '@mui/icons-material/Person2';
 import {useHistory} from 'react-router-dom'
 
-function Register() {
+function Register({ setNewRegister }) {
     const formData = new FormData();
     const history = useHistory()
 
-    const [firstName, setFirstName] = useState();
-    const [lastName, setLastName] = useState();
-    const [userEmail, setUserEmail] = useState();
+    const [name, setName] = useState();
+    const [surname, setSurname] = useState();
+    const [email, setEmail] = useState();
     const [password, setPassword] = useState();
     const [image, setImage] = useState();
     const [errors, setErrors] = useState();
     
-    formData.append('first_name', firstName)
-    formData.append('last_name', lastName)
-    formData.append('email', userEmail)
+    formData.append('name', name)
+    formData.append('surname', surname)
+    formData.append('email', email)
     formData.append('password', password)
     formData.append('image', image)
 
@@ -29,10 +29,12 @@ function Register() {
         })
         .then(res => res.json())
         .then(info => {
+            console.log(info)
             {
                 if (info.error) {
                     setErrors(info.error)
                 }else{
+                    setNewRegister(info.data)
                     history.push('/users/login')
                 }
             }
@@ -51,23 +53,23 @@ function Register() {
                 }
             <div className='register-form'>
                 <div className='form-group'>
-                    <label htmlFor="first_name">Nombre</label>
+                    <label htmlFor="name">Nombre</label>
                     <input
                      className='form-input'
                      type="text"
-                     name='first_name'
+                     name='name'
                      placeholder='Ingrese su nombre...'
-                     onChange={(e) => setFirstName(e.target.value)}
+                     onChange={(e) => setName(e.target.value)}
                     />
                 </div>
                 <div className='form-group'>
-                    <label htmlFor="last_name">Apellido</label>
+                    <label htmlFor="surname">Apellido</label>
                     <input
                      className='form-input'
                      type="text"
-                     name='last_name'
+                     name='surname'
                      placeholder='Ingrese su apellido...'
-                     onChange={(e) => setLastName(e.target.value)}
+                     onChange={(e) => setSurname(e.target.value)}
                     />
                 </div>
                 <div className='form-group'>
@@ -77,7 +79,7 @@ function Register() {
                      type="email"
                      name='email'
                      placeholder='Ingrese su Email...'
-                     onChange={(e) => setUserEmail(e.target.value)}
+                     onChange={(e) => setEmail(e.target.value)}
                     />
                 </div>
                 <div className='form-group'>

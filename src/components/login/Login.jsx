@@ -6,7 +6,7 @@ import Checkbox from '@mui/material/Checkbox';
 import Cookie from 'js-cookie'
 import {useHistory} from 'react-router-dom'
 
-function Login({ setUser }) {
+function Login({ setUser, newRegister }) {
 
     const [userEmail, setUserEmail] = useState()
     const [password, setPassword] = useState()
@@ -56,7 +56,7 @@ function Login({ setUser }) {
 
     return (
         <form className='login-container' >
-            <h3 className='welcome-login'>BIENVENID@</h3>
+            <h3 className='welcome-login'>BIENVENID@ {newRegister}</h3>
             <div className='login-form'>
                 <Person2Icon fontSize='large' />
                 {

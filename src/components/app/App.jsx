@@ -15,6 +15,7 @@ function App() {
   
   const [results, setResults] = useState([]);
   const [user, setUser] = useState(null)
+  const [newRegister, setNewRegister] = useState();
   const userLogin = Cookie.get('userLogin')
   
   useEffect(() => {
@@ -40,10 +41,10 @@ function App() {
             <ProductsDetail />
         </Route>
         <Route exact path="/users/register">
-            <Register />
+            <Register setNewRegister={setNewRegister} />
         </Route>
         <Route exact path="/users/login">
-           <Login setUser={setUser} />
+           <Login setUser={setUser} newRegister={newRegister} />
         </Route>
         
         {/* <Route component={NotFound} /> */}
