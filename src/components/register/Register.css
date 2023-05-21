@@ -23,6 +23,10 @@
     
 }
 
+.form-group span {
+    color: rgb(245, 49, 49);
+}
+
 .form-group label, .form-group-image label {
     font-weight: bold;
 }
@@ -72,4 +76,7 @@ button {
         width: 80%;
         margin: 0px 30px;
     }
+
+    
+
 }

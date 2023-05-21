@@ -12,6 +12,8 @@ function Register() {
     const [userEmail, setUserEmail] = useState();
     const [password, setPassword] = useState();
     const [image, setImage] = useState();
+    const [errors, setErrors] = useState();
+    const [oldData, setOldData] = useState('');
     
     formData.append('first_name', firstName)
     formData.append('last_name', lastName)
@@ -29,7 +31,18 @@ function Register() {
         .then(res => res.json())
         .then(info => {
          console.log(info)
-         history.push('/users/login')   
+         {
+
+            if (info.error && info.oldData) {
+                setErrors(info.error)
+                setOldData(info.oldData)
+            }else{
+
+                history.push('/users/login')  
+            }
+
+        }
+          
         })
            
     }
@@ -46,8 +59,13 @@ function Register() {
                      type="text"
                      name='first_name'
                      placeholder='Ingrese su nombre...'
+                     value={oldData ? oldData.first_name : ''}
                      onChange={(e) => setFirstName(e.target.value)}
                     />
+                    {
+                        errors && errors.name ? <span> {errors.name.msg} </span> : ''
+                   
+                    }
                 </div>
                 <div className='form-group'>
                     <label htmlFor="last_name">Apellido</label>
