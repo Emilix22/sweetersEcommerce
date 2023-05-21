@@ -27,6 +27,10 @@
     font-weight: bold;
 }
 
+.error-msg {
+    color: rgb(245, 49, 49);
+}
+
 .form-input {
     width: 100%;
     height: 30px;

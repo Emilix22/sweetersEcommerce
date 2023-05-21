@@ -23,12 +23,12 @@
     
 }
 
-.form-group span {
-    color: rgb(245, 49, 49);
-}
-
 .form-group label, .form-group-image label {
     font-weight: bold;
+}
+
+.error-msg {
+    color: rgb(245, 49, 49);
 }
 
 .form-input {

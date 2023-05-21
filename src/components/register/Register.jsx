@@ -13,7 +13,6 @@ function Register() {
     const [password, setPassword] = useState();
     const [image, setImage] = useState();
     const [errors, setErrors] = useState();
-    const [oldData, setOldData] = useState('');
     
     formData.append('first_name', firstName)
     formData.append('last_name', lastName)
@@ -30,19 +29,14 @@ function Register() {
         })
         .then(res => res.json())
         .then(info => {
-         console.log(info)
-         {
-
-            if (info.error && info.oldData) {
-                setErrors(info.error)
-                setOldData(info.oldData)
-            }else{
-
-                history.push('/users/login')  
+            {
+                if (info.error) {
+                    setErrors(info.error)
+                }else{
+                    history.push('/users/login')
+                }
             }
-
-        }
-          
+         
         })
            
     }
@@ -51,6 +45,10 @@ function Register() {
         <form className='register-container' >
             <h3 className='welcome-register'>BIENVENID@</h3>
                 <Person2Icon fontSize='large' />
+                {/* ver los errores que son de express validator cambiar los que tienen _ */}
+                {
+                    errors ? <span className='error-msg'> {errors} </span> : ''   
+                }
             <div className='register-form'>
                 <div className='form-group'>
                     <label htmlFor="first_name">Nombre</label>
@@ -59,13 +57,8 @@ function Register() {
                      type="text"
                      name='first_name'
                      placeholder='Ingrese su nombre...'
-                     value={oldData ? oldData.first_name : ''}
                      onChange={(e) => setFirstName(e.target.value)}
                     />
-                    {
-                        errors && errors.name ? <span> {errors.name.msg} </span> : ''
-                   
-                    }
                 </div>
                 <div className='form-group'>
                     <label htmlFor="last_name">Apellido</label>
