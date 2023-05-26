@@ -57,9 +57,10 @@ function Register({ setNewRegister }) {
                      className='form-input'
                      type="text"
                      name='name'
-                     placeholder='Ingrese su nombre...'
+                     placeholder='Ej: Juan'
                      onChange={(e) => setName(e.target.value)}
                     />
+                    <div className='inputInstruction'>(*)Obligatorio, mínimo 4 caracteres</div>
                     {
                         errors && errors.name ? <span className='error-msg'> {errors.name.msg} </span> : ''
                    
@@ -74,6 +75,7 @@ function Register({ setNewRegister }) {
                      placeholder='Ingrese su apellido...'
                      onChange={(e) => setSurname(e.target.value)}
                     />
+                    <div className='inputInstruction'>(*)Obligatorio</div>
                     {
                         errors && errors.surname ? <span className='error-msg'> {errors.surname.msg} </span> : ''
                    
@@ -88,6 +90,7 @@ function Register({ setNewRegister }) {
                      placeholder='Ingrese su Email...'
                      onChange={(e) => setEmail(e.target.value)}
                     />
+                    <div className='inputInstruction'>(*)Obligatorio</div>
                     {
                         errors && errors.email ? <span className='error-msg'> {errors.email.msg} </span> : ''
                    
@@ -102,6 +105,7 @@ function Register({ setNewRegister }) {
                      placeholder='Ingrese su Password...'
                      onChange={(e) => setPassword(e.target.value)}
                     />
+                    <div className='inputInstruction'>(*)Obligatorio, mínimo 8 caracteres</div>
                     {
                         errors && errors.password ? <span className='error-msg'> {errors.password.msg} </span> : ''
                    
@@ -115,6 +119,7 @@ function Register({ setNewRegister }) {
                      name='image'
                      onChange={(e) => setImage(e.target.files[0])} 
                     />
+                    <div className='inputInstruction'>Opcional, extenciones admitidas: .jpg, .png, jpeg, webp</div>
                 </div>
                 
                 <button onClick={handleSubmit}>Registrarme</button>
