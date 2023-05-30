@@ -28,7 +28,12 @@ function App() {
   return (
     <div className='home'>
       <Navbar setResults={setResults} user={user} setUser={setUser} />
-      <SearchResult results={results} />
+      {
+        results.length > 0 ? 
+        <SearchResult results={results} />
+        :
+        ''
+      }
       
       <Switch>
         <Route exact path="/">
