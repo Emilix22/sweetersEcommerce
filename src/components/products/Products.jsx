@@ -10,16 +10,15 @@ function Products() {
         maxPrice: Infinity
       })
 
+
     const filterProducts = (products) => {
         return products.filter(product => {
             return (
-                product.price <= filters.maxPrice &&
-                //esto en el caso que hubiese categorias 
+                product.price <= Number(filters.maxPrice) && 
                 (
                     filters.category == 'all' ||
-                    product.category == filters.category
+                    product.category_id == filters.category
                 )
-                //***************el return en el caso de sacar categorias no iria entre parentesis */
             )
         })
     }
@@ -30,12 +29,12 @@ function Products() {
         .then(info => {
             setProducts(filterProducts(info.data))
         })
-    }, [])
+    }, [filters])
 
     return (
         <main className='mainContainer'>
             <h2>Nuestros Productos</h2>
-            <Filters />
+            <Filters setFilters={setFilters} />
             <div className='products' id='products'> 
                {
                 products.map((product, index) => {
