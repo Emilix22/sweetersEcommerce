@@ -63,10 +63,11 @@ function Login({ setUser, newRegister }) {
                     errors && !(errors.password || errors.email) ? <span className='error-msg'> {errors} </span> : ''   
                 }
                 <div className='form-group'>
-                    <label htmlFor="email">Email</label>
+                    <label htmlFor="emailLogin">Email</label>
                     <input
                      className='form-input'
                      type="email"
+                     id='emailLogin'
                      name='email'
                      placeholder='Ingrese su Email...'
                      onChange={(e) => setUserEmail(e.target.value)}
@@ -77,9 +78,10 @@ function Login({ setUser, newRegister }) {
                     }
                 </div>
                 <div className='form-group'>
-                    <label htmlFor="password">Password</label>
+                    <label htmlFor="passwordLogin">Password</label>
                     <input
                      className='form-input'
+                     id='passwordLogin'
                      type="password"
                      name='password'
                      placeholder='Ingrese su Password...'

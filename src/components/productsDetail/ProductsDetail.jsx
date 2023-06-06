@@ -13,6 +13,7 @@ function ProdutDetail() {
         .then(info => {
             setProduct(info.data)
         })
+        .catch(error => console.log(error))
     }, [])
 
     return (

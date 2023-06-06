@@ -52,9 +52,10 @@ function Register({ setNewRegister }) {
                 }
             <div className='register-form'>
                 <div className='form-group'>
-                    <label htmlFor="name">Nombre</label>
+                    <label htmlFor='name'>Nombre</label>
                     <input
                      className='form-input'
+                     id='name'
                      type="text"
                      name='name'
                      placeholder='Ej: Juan'
@@ -69,7 +70,8 @@ function Register({ setNewRegister }) {
                 <div className='form-group'>
                     <label htmlFor="surname">Apellido</label>
                     <input
-                     className='form-input'
+                     className='form-input' 
+                     id='surname'
                      type="text"
                      name='surname'
                      placeholder='Ingrese su apellido...'
@@ -85,6 +87,7 @@ function Register({ setNewRegister }) {
                     <label htmlFor="email">Email</label>
                     <input
                      className='form-input'
+                     id='email'
                      type="email"
                      name='email'
                      placeholder='Ingrese su Email...'
@@ -100,6 +103,7 @@ function Register({ setNewRegister }) {
                     <label htmlFor="password">Password</label>
                     <input
                      className='form-input'
+                     id='password'
                      type="password"
                      name='password'
                      placeholder='Ingrese su Password...'
@@ -115,6 +119,7 @@ function Register({ setNewRegister }) {
                     <label htmlFor="image">Foto de perfil</label>
                     <input
                      className='form-input'
+                     id='image'
                      type="file"
                      name='image'
                      onChange={(e) => setImage(e.target.files[0])} 
