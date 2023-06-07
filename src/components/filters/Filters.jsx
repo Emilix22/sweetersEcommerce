@@ -1,11 +1,9 @@
 import React, { useState } from 'react'
 import './Filters.css'
 
-function Filters({ setFilters }) {
-    const [maxPrice, setMaxPrice] = useState(0);
-
+function Filters({ setFilters, filters }) {
+    
     const handleChangeMaxPrice = (event) => {
-        setMaxPrice(event.target.value)
         setFilters(prevState => ({
             ...prevState, 
             maxPrice: event.target.value 
@@ -28,8 +26,9 @@ function Filters({ setFilters }) {
                  id='price'
                  min='6000.00'
                  max='30000.00' 
+                 value={filters.maxPrice}
                  onChange={handleChangeMaxPrice}/>
-                 <span>${maxPrice}</span>
+                 <span>${filters.maxPrice}</span>
             </div>
 
             <div>

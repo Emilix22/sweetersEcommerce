@@ -7,7 +7,7 @@ function Products() {
     const [products, setProducts] = useState([]);
     const [filters, setFilters] = useState({
         category : 'all',
-        maxPrice: Infinity
+        maxPrice: 30000
       })
 
 
@@ -34,7 +34,7 @@ function Products() {
     return (
         <main className='mainContainer'>
             <h2>Nuestros Productos</h2>
-            <Filters setFilters={setFilters} />
+            <Filters setFilters={setFilters} filters={filters} />
             <div className='products' id='products'> 
                {
                 products.map((product, index) => {
