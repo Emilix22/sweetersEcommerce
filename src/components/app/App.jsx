@@ -8,6 +8,7 @@ import Register from '../register/Register';
 import Login from '../login/Login';
 import ProductsDetail from '../productsDetail/ProductsDetail';
 import SearchResult from '../searchResult/SearchResult';
+import Footer from '../footer/footer';
 import Cookie from 'js-cookie'
 
 
@@ -54,6 +55,7 @@ function App() {
         
         {/* <Route component={NotFound} /> */}
       </Switch>
+      <Footer />
     </div>
   )
 }
