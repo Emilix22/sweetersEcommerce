@@ -27,8 +27,9 @@ function App() {
   
 
   return (
-    <div className='home'>
+    <>
       <Navbar setResults={setResults} user={user} setUser={setUser} />
+    <div className='home'>
       {
         results.length > 0 ? 
         <SearchResult results={results} />
@@ -57,6 +58,7 @@ function App() {
       </Switch>
       <Footer />
     </div>
+      </>
   )
 }
 
