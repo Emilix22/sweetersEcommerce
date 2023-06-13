@@ -10,6 +10,7 @@ import ProductsDetail from '../productsDetail/ProductsDetail';
 import SearchResult from '../searchResult/SearchResult';
 import Footer from '../footer/footer';
 import Cookie from 'js-cookie'
+import Cart from '../cart/Cart'
 
 
 function App() {
@@ -40,6 +41,9 @@ function App() {
       <Switch>
         <Route exact path="/">
             <Home />
+        </Route>
+        <Route exact path="/cart">
+            <Cart />
         </Route>
         <Route exact path="/products">
             <Products />

@@ -34,14 +34,18 @@ function Navbar({ setResults, user, setUser }) {
         setUser(null)
         Cookie.remove('userLogin')
     }
+
+    const handleMenu = (event) => {
+        
+    }
     
     return (
         <div className='navbar'>
             <div className="top-bar">
                 <picture>
-                    <a href="/">
+                    <Link to="/">
                         <img className="logo" src={logo} alt="logo"/>
-                    </a>
+                    </Link>
                 </picture>
                 <form action="">
                     <div className="search-bar-container">
@@ -50,8 +54,10 @@ function Navbar({ setResults, user, setUser }) {
                     </div>
                 </form>
                 <div className="icons">
-                    <ShoppingCartIcon className="cartIcon" />
-                    <MenuIcon className='hamMenu' />
+                    <Link to="/cart">
+                        <ShoppingCartIcon className="cartIcon" />
+                    </Link>
+                    <MenuIcon onClick={handleMenu} className='hamMenu' />
                     { user == null
                                 ? <ul className="register">
                                     <li>
