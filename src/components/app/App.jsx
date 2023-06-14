@@ -10,7 +10,7 @@ import ProductsDetail from '../productsDetail/ProductsDetail';
 import SearchResult from '../searchResult/SearchResult';
 import Footer from '../footer/footer';
 import Cookie from 'js-cookie'
-import Cart from '../cart/Cart'
+
 
 
 function App() {
@@ -18,6 +18,7 @@ function App() {
   const [results, setResults] = useState([]);
   const [user, setUser] = useState(null)
   const [newRegister, setNewRegister] = useState();
+  const [productsCart, setProductsCart] = useState(0)
   const userLogin = Cookie.get('userLogin')
   
   useEffect(() => {
@@ -42,11 +43,8 @@ function App() {
         <Route exact path="/">
             <Home />
         </Route>
-        <Route exact path="/cart">
-            <Cart />
-        </Route>
         <Route exact path="/products">
-            <Products />
+            <Products setProductsCart={setProductsCart} productsCart={productsCart} />
         </Route>
         <Route exact path="/products/detail/:id">
             <ProductsDetail />

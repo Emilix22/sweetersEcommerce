@@ -4,7 +4,12 @@ import './productCard.css'
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
-function ProductCard(props) {
+function ProductCard(props, {setProductsCart}) {
+
+    const addCart = (event) => {
+        console.log(`agregue`)
+    }
+
     return (
         
         <article className="product-card" id="product-card">
@@ -16,7 +21,7 @@ function ProductCard(props) {
                 <span className="price">$ {props.price}</span>
             </div>
             <FavoriteBorderIcon className='heartIcon'/>
-            <button>Agregar <ShoppingCartIcon /> </button>   
+            <button onClick={addCart}>Agregar <ShoppingCartIcon /> </button>   
         </article>    
     )
 }

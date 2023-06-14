@@ -65,6 +65,17 @@ li {
     color: #798280;
     font-size: 22px;
 }
+.cart {
+    position: absolute;
+    margin-top: 10px;
+    top: 70px;
+    right: 20px;
+    border: solid 1px black;
+    
+}
+.cart-view {
+    display: none;
+}
 .menu {
     display: none;
     justify-content: center;

@@ -4,6 +4,7 @@ import logo from '../../assets/logo.jpg'
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import SearchIcon from '@mui/icons-material/Search';
 import MenuIcon from '@mui/icons-material/Menu';
+import Cart from '../cart/Cart'
 import {Link} from 'react-router-dom';
 import { HashLink } from 'react-router-hash-link';
 import Cookie from 'js-cookie'
@@ -11,6 +12,7 @@ import Cookie from 'js-cookie'
 function Navbar({ setResults, user, setUser }) {
 
     const [input, setInput] = useState('')
+    const [cartView, setCartView] = useState(false)
 
     const fetchData = (value) => {
         fetch('http://localhost:3000/api/products')
@@ -54,9 +56,11 @@ function Navbar({ setResults, user, setUser }) {
                     </div>
                 </form>
                 <div className="icons">
-                    <Link to="/cart">
+                    <div className='container-cartIcon' onClick={() => {setCartView(!cartView)}}>
                         <ShoppingCartIcon className="cartIcon" />
-                    </Link>
+                        <span className='cart-number'>0</span>
+                    </div>
+                    
                     <MenuIcon onClick={handleMenu} className='hamMenu' />
                     { user == null
                                 ? <ul className="register">
@@ -86,7 +90,10 @@ function Navbar({ setResults, user, setUser }) {
                 <li>
                     <HashLink to="/#offers">Ofertas</HashLink>
                 </li>
-            </ul>  
+            </ul>
+            <div className={`cart ${cartView ? '' : 'cart-view'}`}>
+                <Cart />
+            </div>  
         </div>
     )
 }

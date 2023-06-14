@@ -3,7 +3,7 @@ import './Products.css'
 import ProductCard from '../productCard/ProductCard'
 import Filters from '../filters/Filters';
 
-function Products() {
+function Products({setProductsCart, productsCart}) {
     const [products, setProducts] = useState([]);
     const [filters, setFilters] = useState({
         category : 'all',
@@ -39,7 +39,7 @@ function Products() {
                {
                 products.map((product, index) => {
                     
-                    return <ProductCard {...product} key= {product + index} /> 
+                    return <ProductCard {...product} setProductsCart={setProductsCart} productsCart={productsCart} key= {product + index} /> 
                        
                 })
                } 
