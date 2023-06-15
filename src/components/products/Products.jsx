@@ -3,7 +3,9 @@ import './Products.css'
 import ProductCard from '../productCard/ProductCard'
 import Filters from '../filters/Filters';
 
-function Products({setProductsCart, productsCart}) {
+function Products({setProductsCart, productsCart, totalProducts, setTotalProducts, countProducts, setCountProducts}) {
+
+    
     const [products, setProducts] = useState([]);
     const [filters, setFilters] = useState({
         category : 'all',
@@ -30,7 +32,7 @@ function Products({setProductsCart, productsCart}) {
             setProducts(filterProducts(info.data))
         })
     }, [filters])
-
+    //console.log(productsCart)
     return (
         <main className='mainContainer'>
             <h2>Nuestros Productos</h2>
@@ -39,7 +41,7 @@ function Products({setProductsCart, productsCart}) {
                {
                 products.map((product, index) => {
                     
-                    return <ProductCard {...product} setProductsCart={setProductsCart} productsCart={productsCart} key= {product + index} /> 
+                    return <ProductCard product={{...product}} setProductsCart={setProductsCart} productsCart={productsCart} key= {product + index} /> 
                        
                 })
                } 

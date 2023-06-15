@@ -18,11 +18,14 @@ function Cart() {
                         <strong>Subtotal</strong>
                     </th>
                 </thead>
-                <tbody className='cartRows'>
+                <tbody className="cartRows">
                     
                 </tbody>
             </table>
+        <div>
+            <h2><span className="total-cart">Total $</span></h2>
         </div>
+    </div>
     )
 }
 

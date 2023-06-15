@@ -18,7 +18,9 @@ function App() {
   const [results, setResults] = useState([]);
   const [user, setUser] = useState(null)
   const [newRegister, setNewRegister] = useState();
-  const [productsCart, setProductsCart] = useState(0)
+  const [productsCart, setProductsCart] = useState([]);
+  const [totalProducts, setTotalProducts] = useState(0);
+  const [countProducts, setCountProducts] = useState(0);
   const userLogin = Cookie.get('userLogin')
   
   useEffect(() => {
@@ -30,7 +32,17 @@ function App() {
 
   return (
     <>
-      <Navbar setResults={setResults} user={user} setUser={setUser} />
+      <Navbar 
+      setResults={setResults} 
+      user={user} 
+      setUser={setUser} 
+      productsCart={productsCart} 
+      setProductsCart={setProductsCart} 
+      totalProducts={totalProducts}
+      setTotalProducts={setTotalProducts}
+      countProducts={countProducts}
+      setCountProducts={setCountProducts} />
+
     <div className='home'>
       {
         results.length > 0 ? 
@@ -44,7 +56,13 @@ function App() {
             <Home />
         </Route>
         <Route exact path="/products">
-            <Products setProductsCart={setProductsCart} productsCart={productsCart} />
+            <Products 
+            setProductsCart={setProductsCart} 
+            productsCart={productsCart} 
+            totalProducts={totalProducts}
+            setTotalProducts={setTotalProducts}
+            countProducts={countProducts}
+            setCountProducts={setCountProducts} />
         </Route>
         <Route exact path="/products/detail/:id">
             <ProductsDetail />
