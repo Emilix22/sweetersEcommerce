@@ -3,12 +3,18 @@ import './Home.css';
 import Banner from '../banner/Banner';
 import Offers from '../offers/Offers';
 
-function Home() {
+function Home({setProductsCart, productsCart, total, setTotal, countProducts, setCountProducts}) {
     return (
         <div>
             <Banner />
             <main className='mainContainer'>
-                <Offers />
+                <Offers 
+                setProductsCart={setProductsCart} 
+                productsCart={productsCart} 
+                total={total} 
+                setTotal={setTotal} 
+                countProducts={countProducts} 
+                setCountProducts={setCountProducts} />
             </main>
         </div>
     )

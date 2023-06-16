@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react'
 import './Offers.css'
 import ProductCard from '../productCard/ProductCard'
 
-function Offers() {
+function Offers({setProductsCart, productsCart, total, setTotal, countProducts, setCountProducts}) {
     const [products, setProducts] = useState([]);
 
     useEffect(() => {
@@ -20,7 +20,15 @@ function Offers() {
                {
                 products.map((product, index) => {
                     if (product.sale == 1) {
-                       return <ProductCard product={{...product}} key= {product + index} /> 
+                       return <ProductCard 
+                                product={{...product, quantityCart: 1}} 
+                                setProductsCart={setProductsCart} 
+                                productsCart={productsCart} 
+                                total={total} 
+                                setTotal={setTotal} 
+                                countProducts={countProducts} 
+                                setCountProducts={setCountProducts} 
+                                key= {product + index} /> 
                     }   
                 })
                } 

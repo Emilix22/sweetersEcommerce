@@ -53,7 +53,13 @@ function App() {
       
       <Switch>
         <Route exact path="/">
-            <Home />
+            <Home 
+            setProductsCart={setProductsCart} 
+            productsCart={productsCart} 
+            countProducts={countProducts}
+            setCountProducts={setCountProducts}
+            total={total}
+            setTotal={setTotal} />
         </Route>
         <Route exact path="/products">
             <Products 

@@ -32,7 +32,7 @@ function Products({setProductsCart, productsCart, total, setTotal, countProducts
             setProducts(filterProducts(info.data))
         })
     }, [filters])
-    //console.log(productsCart)
+    
     return (
         <main className='mainContainer'>
             <h2>Nuestros Productos</h2>

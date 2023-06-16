@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom';
 import './productCard.css'
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import Swal from 'sweetalert2'
 
 function ProductCard({product, setProductsCart, productsCart, total, setTotal, countProducts, setCountProducts}) {
 
@@ -14,11 +15,45 @@ function ProductCard({product, setProductsCart, productsCart, total, setTotal, c
                 ? {...item, quantityCart: item.quantityCart + 1} 
                 : item)
             
+            const Toast = Swal.mixin({
+                toast: true,
+                position: 'center-end',
+                showConfirmButton: false,
+                timer: 3000,
+                timerProgressBar: true,
+                didOpen: (toast) => {
+                    toast.addEventListener('mouseenter', Swal.stopTimer)
+                    toast.addEventListener('mouseleave', Swal.resumeTimer)
+                }
+                })
+                
+                Toast.fire({
+                icon: 'success',
+                title: `Se agregó una vez más el producto ${product.name} al carrito`
+                })    
+
             setCountProducts(countProducts + product.quantityCart)
             setTotal(total + (product.price * product.quantityCart))
             setProductsCart([...products])
        } else {
-           
+
+        const Toast = Swal.mixin({
+            toast: true,
+            position: 'center-end',
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+              toast.addEventListener('mouseenter', Swal.stopTimer)
+              toast.addEventListener('mouseleave', Swal.resumeTimer)
+            }
+          })
+          
+          Toast.fire({
+            icon: 'success',
+            title: `Se agregó el producto ${product.name} al carrito`
+          })    
+
            setCountProducts(countProducts + product.quantityCart)
            setTotal(total + (product.price * product.quantityCart))
            setProductsCart([...productsCart, product])
