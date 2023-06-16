@@ -3,7 +3,7 @@ import './Products.css'
 import ProductCard from '../productCard/ProductCard'
 import Filters from '../filters/Filters';
 
-function Products({setProductsCart, productsCart, totalProducts, setTotalProducts, countProducts, setCountProducts}) {
+function Products({setProductsCart, productsCart, total, setTotal, countProducts, setCountProducts}) {
 
     
     const [products, setProducts] = useState([]);
@@ -41,7 +41,15 @@ function Products({setProductsCart, productsCart, totalProducts, setTotalProduct
                {
                 products.map((product, index) => {
                     
-                    return <ProductCard product={{...product}} setProductsCart={setProductsCart} productsCart={productsCart} key= {product + index} /> 
+                    return <ProductCard 
+                            product={{...product, quantityCart: 1}} 
+                            setProductsCart={setProductsCart} 
+                            productsCart={productsCart} 
+                            total={total} 
+                            setTotal={setTotal} 
+                            countProducts={countProducts} 
+                            setCountProducts={setCountProducts} 
+                            key= {product + index} /> 
                        
                 })
                } 

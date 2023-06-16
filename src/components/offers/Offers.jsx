@@ -20,7 +20,7 @@ function Offers() {
                {
                 products.map((product, index) => {
                     if (product.sale == 1) {
-                       return <ProductCard {...product} key= {product + index} /> 
+                       return <ProductCard product={{...product}} key= {product + index} /> 
                     }   
                 })
                } 

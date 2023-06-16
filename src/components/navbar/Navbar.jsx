@@ -9,7 +9,7 @@ import {Link} from 'react-router-dom';
 import { HashLink } from 'react-router-hash-link';
 import Cookie from 'js-cookie'
 
-function Navbar({ setResults, user, setUser }) {
+function Navbar({ setResults, user, setUser, productsCart, setProductsCart, total, setTotal, countProducts }) {
 
     const [input, setInput] = useState('')
     const [cartView, setCartView] = useState(false)
@@ -58,7 +58,7 @@ function Navbar({ setResults, user, setUser }) {
                 <div className="icons">
                     <div className='container-cartIcon' onClick={() => {setCartView(!cartView)}}>
                         <ShoppingCartIcon className="cartIcon" />
-                        <span className='cart-number'>0</span>
+                        <span className='cart-number'>{countProducts}</span>
                     </div>
                     
                     <MenuIcon onClick={handleMenu} className='hamMenu' />
@@ -92,7 +92,7 @@ function Navbar({ setResults, user, setUser }) {
                 </li>
             </ul>
             <div className={`cart ${cartView ? '' : 'cart-view'}`}>
-                <Cart />
+                <Cart productsCart={productsCart} setProductsCart={setProductsCart} total={total} setTotal={setTotal} />
             </div>  
         </div>
     )

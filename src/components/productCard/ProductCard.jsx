@@ -4,10 +4,25 @@ import './productCard.css'
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
-function ProductCard({product, setProductsCart, productsCart}) {
+function ProductCard({product, setProductsCart, productsCart, total, setTotal, countProducts, setCountProducts}) {
 
     const addCart = (product) => {
-       setProductsCart([...productsCart, product])
+
+       if(productsCart.find(item => item.id == product.id)) {
+
+            const products = productsCart.map(item => item.id == product.id 
+                ? {...item, quantityCart: item.quantityCart + 1} 
+                : item)
+            
+            setCountProducts(countProducts + product.quantityCart)
+            setTotal(total + (product.price * product.quantityCart))
+            setProductsCart([...products])
+       } else {
+           
+           setCountProducts(countProducts + product.quantityCart)
+           setTotal(total + (product.price * product.quantityCart))
+           setProductsCart([...productsCart, product])
+       }
         
     }
     return (
